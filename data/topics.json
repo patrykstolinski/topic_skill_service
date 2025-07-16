@@ -1,12 +1,5 @@
 [
-  {
-    "id": "T1",
-    "title": "Python Basics",
-    "description": "At vero eos et accusam et justo duo dolores et ea rebum."
-  },
-  {
-    "id": "T2",
-    "title": "Flask Web Development",
-    "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr."
-  }
+  { "id": "t1", "name": "Web Development Fundamentals", "description": "Core concepts for building web applications.", "prerequisites": [], "parentTopicId": null },
+  { "id": "t2", "name": "Frontend Development", "description": "Building the user interface.", "prerequisites": ["t1"], "parentTopicId": "t1" },
+  { "id": "t3", "name": "Backend Development", "description": "Server-side logic and databases.", "prerequisites": ["t1"], "parentTopicId": "t1" }
 ]
