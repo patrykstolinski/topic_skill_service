@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "title": "Python Basics",
+    "description": "At vero eos et accusam et justo duo dolores et ea rebum."
+  },
+  {
+    "id": 2,
+    "title": "Flask Web Development",
+    "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr."
+  }
+]
