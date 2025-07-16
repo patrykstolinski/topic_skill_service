@@ -35,6 +35,9 @@ def get_topics():
 def get_topics_by_id(topic_id):
 
     topics = data_manager.read_data("data/topics.json")
+    #### Debug ###
+    print(f"[DEBUG] Requested ID: {topic_id}")
+    print(f"[DEBUG] Available ID's: {[topic.get('id') for topic in topics]}")
 
     for topic in topics:
         if topic.get("id").lower() == topic_id.lower():
@@ -50,7 +53,11 @@ def get_skills():
 
 @app.route("/skills/<string:skill_id>")
 def get_skills_by_id(skill_id):
+
     skills = data_manager.read_data("data/skills.json")
+    #### Debug ####
+    print(f"[DEBUG] Requested ID: {skill_id}")
+    print(f"[DEBUG] Available ID's: {[skill.get('id') for skill in skills]}")
     for skill in skills:
         if skill.get("id").lower() == skill_id.lower():
             return jsonify(skill)
