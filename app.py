@@ -37,7 +37,7 @@ def get_topics_by_id(topic_id):
     topics = data_manager.read_data("data/topics.json")
 
     for topic in topics:
-        if topic.get("id") == topic_id:
+        if topic.get("id").lower() == topic_id.lower():
             return jsonify(topic)
     return jsonify({"Error":"Topic not found"}), 404
 
@@ -52,7 +52,7 @@ def get_skills():
 def get_skills_by_id(skill_id):
     skills = data_manager.read_data("data/skills.json")
     for skill in skills:
-        if skill.get("id") == skill_id:
+        if skill.get("id").lower() == skill_id.lower():
             return jsonify(skill)
     return jsonify({"Error": "Skill not found."}), 404
 
