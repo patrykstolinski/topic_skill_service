@@ -11,6 +11,7 @@ def hello():
     return display
 
 
+
 @app.route("/topics")
 def get_topics():
 
