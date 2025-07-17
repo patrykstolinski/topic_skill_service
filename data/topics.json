@@ -2,7 +2,8 @@
   { "id": "t1",
     "name": "Web Development Fundamentals", 
     "description": "Core concepts for building web applications.", 
-    "prerequisites": [], "parentTopicId": null 
+    "prerequisites": [], 
+    "parentTopicId": null 
   },
   { "id": "t2",
     "name": "Frontend Development", 
