@@ -1,6 +1,6 @@
 import os
 import json
-
+ 
 class JsonDataManager:
 
     # Handles reading from and writing to JSON files in a specified directory.
