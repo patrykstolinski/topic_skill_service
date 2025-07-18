@@ -1,20 +1,32 @@
 [
-  { "id": "t1",
-    "name": "Web Development Fundamentals", 
-    "description": "Core concepts for building web applications.", 
-    "prerequisites": [], 
-    "parentTopicId": null 
-  },
-  { "id": "t2",
-    "name": "Frontend Development", 
-    "description": "Building the user interface.", 
-    "prerequisites": ["t1"], 
-    "parentTopicId": "t1" 
-  },
-  { "id": "t3",
-    "name": "Backend Development", 
-    "description": "Server-side logic and databases.", 
-    "prerequisites": ["t1"], 
-    "parentTopicId": "t1"
-  }
+    {
+        "id": "t1",
+        "name": "Web Development Fundamentals",
+        "description": "Core concepts for building web applications.",
+        "prerequisites": [],
+        "parentTopicId": null
+    },
+    {
+        "id": "t2",
+        "name": "Frontend Development",
+        "description": "Building the user interface.",
+        "prerequisites": [
+            "t1"
+        ],
+        "parentTopicId": "t1"
+    },
+    {
+        "id": "t3",
+        "name": "Backend Development",
+        "description": "Server-side logic and databases.",
+        "prerequisites": [
+            "t1"
+        ],
+        "parentTopicId": "t1"
+    },
+    {
+        "id": "16eb4118-7565-469e-8d65-4e3c1e282620",
+        "name": "Grundlagen der K\u00fcnstlichen Intelligenz",
+        "description": "Eine Einf\u00fchrung in die Konzepte und Anwendungen von KI, einschlie\u00dflich maschinellem Lernen und neuronalen Netzen."
+    }
 ]

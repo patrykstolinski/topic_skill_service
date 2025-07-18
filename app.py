@@ -1,5 +1,6 @@
 import os
-from flask import Flask, jsonify
+import uuid
+from flask import Flask, jsonify, request
 from data_manager import JsonDataManager 
 
 app = Flask(__name__)
@@ -14,6 +15,7 @@ SKILLS_FILE = os.path.join(DATA_DIR, 'skills.json')
 def hello_world():
     return "Hello from Patryk's Topic and Skill Service!"
 
+# ------------------- GET METHODS ------------------
 # --------------------- topics ---------------------
 @app.route('/topics', methods=['GET'])
 def get_topics():
@@ -57,6 +59,37 @@ def get_skills_by_id(id):
         return jsonify(skill)
     return jsonify({"[ERROR]": "Skill ID Not found"}), 404 
  
+# ------------------- POST METHODS -----------------
+# --------------------- topics ---------------------
+
+@app.route('/topics', methods = ["POST"])
+def create_topic():
+    # this extracts all information from request as eine Dictionary
+    new_topic_data = request.json
+    # this checks if specific keys are not present in POST request
+    if not new_topic_data or 'name' not in new_topic_data or 'description' not in new_topic_data:
+        return jsonify({"[ERROR]":"'Name' or 'description' not in POST"}),400
+    # this generates random ID with uuid.uuid4() 
+    new_topic_id = str(uuid.uuid4())
+    # this is a new dictionary, to which we assign values from the dict from POST request (apart from ID)
+    topic = {
+        "id": new_topic_id,
+        "name": new_topic_data['name'],
+        "description": new_topic_data["description"],
+        # "prerequisites": new_topic_data["prerequisites"],
+        # "parentTopicId": new_topic_data["parentTopicId"]
+    }
+    # open the data with data_manager read_data()
+    topics = data_manager.read_data(TOPICS_FILE)
+    # as this is a list, we append the whole new topic dict to the end of the list
+    topics.append(topic)
+    # we save the data with write_data()
+    data_manager.write_data(TOPICS_FILE, topics)
+    # return the 
+    return jsonify(topic), 201
+
+
+
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
