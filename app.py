@@ -28,9 +28,8 @@ def get_topic_by_id(id):
     # for debugging purposes, print the requested and available ID's to the console
     print(f"[DEBUG] Requested Topic ID: '{id.lower()}'.")
     print(f"[DEBUG] Available Topic ID's: {[topic.get('id').lower() for topic in topics]}")
-    # List comprehension loop that loops over topics and assigns it to 'topic' - OLD
-    topic = [t for t in topics if t['id'].lower() == id.lower()][0]
-    print(topic)
+    # next() function is more effective as list comprehension - does the same.
+    topic = next((topic for topic in topics if topic.get('id').lower() == id.lower()), None)
     if topic:
         return jsonify(topic)
     # if not, return error 
