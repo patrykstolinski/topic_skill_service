@@ -45,19 +45,17 @@ def get_skills():
 
 
 # --------------------- skills by ID ---------------
-@app.route('/skills/<id>', methods = ['GET'])
+@app.route('/skills/<string:id>', methods = ['GET'])
 def get_skills_by_id(id):
     skills = data_manager.read_data(SKILLS_FILE)
     # for debugging purposes, print the requested and available ID's to the console
     print(f"[DEBUG] Requested Skill ID: {id}")
     print(f"[DEBUG] Available Skill ID's: {[skill.get('id').lower() for skill in skills]}")
     # Iterator over the skill list on ID base - if found, get the insides, if not, give None back
-    skill = next((skill for skill in skills if skills.get('id').lower() == id.lower()), None)
+    skill = next((skill for skill in skills if skill.get('id').lower() == id.lower()), None)
     if skill:
         return jsonify(skill)
-    return jsonify({"[ERROR]": "Skill ID Not found"}), 404
-    
-
+    return jsonify({"[ERROR]": "Skill ID Not found"}), 404 
 
 
 if __name__ == '__main__':
