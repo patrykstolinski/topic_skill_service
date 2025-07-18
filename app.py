@@ -12,7 +12,7 @@ SKILLS_FILE = os.path.join(DATA_DIR, 'skills.json')
 
 @app.route('/')
 def hello_world():
-    return "Hello from Topic and Skill Service!"
+    return "Hello from Patryk's Topic and Skill Service!"
 
 # --------------------- topics ---------------------
 @app.route('/topics', methods=['GET'])
