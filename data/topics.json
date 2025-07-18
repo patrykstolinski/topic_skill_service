@@ -25,8 +25,10 @@
         "parentTopicId": "t1"
     },
     {
-        "id": "16eb4118-7565-469e-8d65-4e3c1e282620",
+        "id": "a4edb842-5bef-4b11-8e04-67134bfada36",
         "name": "Grundlagen der K\u00fcnstlichen Intelligenz",
-        "description": "Eine Einf\u00fchrung in die Konzepte und Anwendungen von KI, einschlie\u00dflich maschinellem Lernen und neuronalen Netzen."
+        "description": "Eine Einf\u00fchrung in die Konzepte und Anwendungen von KI, einschlie\u00dflich maschinellem Lernen und neuronalen Netzen.",
+        "prerequisites": "Unknown prerequisites",
+        "parentTopicId": "Unknown parent Topic ID"
     }
 ]

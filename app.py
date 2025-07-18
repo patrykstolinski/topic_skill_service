@@ -76,8 +76,8 @@ def create_topic():
         "id": new_topic_id,
         "name": new_topic_data['name'],
         "description": new_topic_data["description"],
-        # "prerequisites": new_topic_data["prerequisites"],
-        # "parentTopicId": new_topic_data["parentTopicId"]
+        "prerequisites": new_topic_data.get("prerequisites", "Unknown prerequisites"),
+        "parentTopicId": new_topic_data.get("parentTopicId", "Unknown parent Topic ID")
     }
     # open the data with data_manager read_data()
     topics = data_manager.read_data(TOPICS_FILE)
@@ -88,6 +88,33 @@ def create_topic():
     # return the 
     return jsonify(topic), 201
 
+
+# --------------------- Skills ---------------------
+
+@app.route('/skills', methods = ["POST"])
+def create_skills():
+    # this extracts all information from request as eine Dictionary
+    new_skill_data = request.json
+    # this checks if specific keys are not present in POST request
+    if not new_skill_data or 'name' not in new_skill_data or 'topicId' not in new_skill_data:
+        return jsonify({"[ERROR]":"'Name' or 'topicId' not in POST"}),400    
+    # this generates random ID with uuid.uuid4() 
+    new_skill_id = str(uuid.uuid4())
+    # this is a new dictionary, to which we assign values from the dict from POST request (apart from ID)
+    skill = {
+        "id": new_skill_id,
+        "name": new_skill_data['name'],
+        "topicId": new_skill_data.get("topicId", "Unknown Topic ID"),
+        "difficulty": new_skill_data.get("difficulty", "Unknown Difficulty")
+    }
+    # open the data with data_manager read_data()
+    skills = data_manager.read_data(SKILLS_FILE)
+    # as this is a list, we append the whole new topic dict to the end of the list
+    skills.append(skill)
+    # we save the data with write_data()
+    data_manager.write_data(SKILLS_FILE, skills)
+    # return the 
+    return jsonify(skill), 201
 
 
 
