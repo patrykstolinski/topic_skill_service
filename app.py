@@ -56,7 +56,7 @@ def get_skills_by_id(id):
     if skill:
         return jsonify(skill)
     return jsonify({"[ERROR]": "Skill ID Not found"}), 404 
-
+ 
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
